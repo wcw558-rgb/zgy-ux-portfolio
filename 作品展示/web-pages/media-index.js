@@ -67,8 +67,8 @@ window.PortfolioMedia = {
         "normalizedHeight": 0.16129032258064513
       },
       {
-        "src": "作品展示/web-pages/fc957635-06-2x.webp",
-        "small": "作品展示/web-pages/fc957635-06-1x.webp",
+        "src": "作品展示/web-pages/fc957635-06-2x.webp?v=figma-3faedbe9fd51",
+        "small": "作品展示/web-pages/fc957635-06-1x.webp?v=figma-3faedbe9fd51",
         "width": 2880,
         "height": 1800,
         "smallWidth": 1440,
@@ -79,8 +79,8 @@ window.PortfolioMedia = {
         "normalizedHeight": 0.16129032258064524
       },
       {
-        "src": "作品展示/web-pages/fc957635-07-2x.webp",
-        "small": "作品展示/web-pages/fc957635-07-1x.webp",
+        "src": "作品展示/web-pages/fc957635-07-2x.webp?v=figma-3faedbe9fd51",
+        "small": "作品展示/web-pages/fc957635-07-1x.webp?v=figma-3faedbe9fd51",
         "width": 2880,
         "height": 360,
         "smallWidth": 1440,
