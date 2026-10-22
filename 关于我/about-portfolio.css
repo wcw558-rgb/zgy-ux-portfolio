@@ -1,0 +1,209 @@
+/* Native reconstruction of the supplied portfolio About page.
+   The shared navigation and dialogs stay outside this scoped board. */
+.about-view.about-portfolio {
+  --portfolio-ink:#192e4c;
+  --portfolio-body:#7a8a9d;
+  --portfolio-blue:#397fc2;
+  --portfolio-line:rgb(112 153 189 / 18%);
+  color:var(--portfolio-ink);
+  font:18px/1.55 Inter,"Microsoft YaHei","PingFang SC",sans-serif;
+}
+.about-view.about-portfolio:focus {outline:none;}
+.about-view.about-portfolio .about-portfolio-layout {
+  display:grid;
+  grid-template-columns:clamp(260px,20vw,360px) minmax(0,1fr);
+  align-items:start;
+  gap:40px;
+  width:calc(100% - 2 * var(--header-gutter,clamp(20px,3.3vw,72px)));
+  margin:0 auto;
+  padding:22px 0 28px;
+}
+.about-view.about-portfolio .about-profile {align-self:start;grid-row:auto;min-width:0;min-height:var(--about-profile-height,0px);display:flex;flex-direction:column;padding-top:12px;}
+.about-view.about-portfolio .about-title {
+  margin:0 0 12px;
+  color:#fff;
+  font-size:clamp(64px,4.8vw,80px);
+  font-weight:800;
+  line-height:1.04;
+  letter-spacing:.035em;
+}
+.about-view.about-portfolio .about-title>span {display:block;margin:0;max-width:none;font-size:inherit;font-weight:inherit;line-height:inherit;letter-spacing:inherit;}
+.about-view.about-portfolio .about-title>span+span {margin-top:10px;}
+.about-view.about-portfolio .about-portrait-wrap {width:100%;height:clamp(350px,48vh,520px);flex-shrink:0;aspect-ratio:auto;margin:0;border-radius:14px;overflow:hidden;}
+.about-view.about-portfolio .about-portrait {width:100%;height:100%;object-fit:cover;object-position:center top;}
+.about-view.about-portfolio .portfolio-introduction {margin:18px 0 22px;}
+.about-view.about-portfolio .portfolio-greeting {margin:0 0 5px;font-size:18px;line-height:1.5;color:var(--portfolio-body);}
+.about-view.about-portfolio .portfolio-name {margin:0;color:var(--portfolio-ink);font-size:46px;font-weight:800;line-height:1.15;letter-spacing:-.02em;}
+.about-view.about-portfolio .about-contact {margin:auto 0 8px;padding-top:13px;border-top:1px solid var(--portfolio-line);gap:3px;}
+.about-view.about-portfolio .about-contact button {font-size:16px;min-height:38px;line-height:1.5;color:#425c79;}
+.about-view.about-portfolio .about-contact>button>span:first-child {color:#7a8a9d;}
+.about-view.about-portfolio .about-contact>button>span:last-child {gap:5px;}
+.about-view.about-portfolio .about-contact svg {width:15px;height:15px;}
+.about-view.about-portfolio :is(.about-resume,.about-portfolio-download) {display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:44px;font-size:16px;font-weight:500;line-height:1.5;padding:9px 12px;border:1px solid rgb(112 153 189 / 35%);background:transparent;color:#425c79;border-radius:5px;text-decoration:none;}
+.about-view.about-portfolio .about-portfolio-download {margin-top:8px;}
+.about-view.about-portfolio .about-portfolio-download svg {flex:none;width:17px;height:17px;fill:none;stroke:currentColor;}
+.about-view.about-portfolio .about-main-content {display:flex;flex-direction:column;justify-content:space-between;gap:28px;min-width:0;min-height:var(--about-profile-height,0px);padding-top:8px;}
+.about-view.about-portfolio .about-section {min-width:0;margin:0;padding:0;border:0;}
+.about-view.about-portfolio .section-heading {margin:0 0 20px;font-size:29px;font-weight:800;line-height:1.1;letter-spacing:-.025em;color:var(--portfolio-ink);}
+.about-view.about-portfolio .portfolio-education-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;padding-bottom:17px;border-bottom:1px solid var(--portfolio-line);}
+.about-view.about-portfolio .portfolio-school {min-width:0;}
+.about-view.about-portfolio .portfolio-school-top {display:flex;align-items:baseline;justify-content:space-between;gap:12px;}
+.about-view.about-portfolio .portfolio-school-top h3 {display:flex;align-items:baseline;gap:8px;margin:0;font-size:23px;font-weight:800;line-height:1.4;white-space:nowrap;}
+.about-view.about-portfolio .portfolio-school-top h3 span {font-size:16px;font-weight:400;color:var(--portfolio-body);}
+.about-view.about-portfolio .portfolio-school time {font-size:15px;color:#8b9bad;white-space:nowrap;}
+.about-view.about-portfolio .portfolio-school p {margin:11px 0 0;font-size:18px;line-height:1.5;color:var(--portfolio-body);}
+.about-view.about-portfolio .portfolio-school p strong {font-weight:600;color:#43698f;}
+.about-view.about-portfolio .portfolio-experience-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:24px;}
+.about-view.about-portfolio .portfolio-internship {padding:0;border:1px solid rgb(126 168 203 / 22%);border-radius:11px;background:rgb(255 255 255 / 63%);min-width:0;}
+.about-view.about-portfolio .portfolio-internship-summary {display:block;list-style:none;padding:21px 22px 16px;cursor:pointer;border-radius:10px;}
+.about-view.about-portfolio .portfolio-internship-summary::-webkit-details-marker {display:none;}
+.about-view.about-portfolio .portfolio-internship-summary::marker {content:"";}
+.about-view.about-portfolio .portfolio-internship-summary:focus-visible {outline:2px solid #397fc2;outline-offset:4px;}
+.about-view.about-portfolio .portfolio-expand-hint {display:flex;justify-content:flex-end;align-items:center;gap:5px;margin-top:10px;font-size:13px;color:#7c98b1;line-height:1.4;}
+.about-view.about-portfolio .portfolio-expand-hint svg {width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.5;}
+.about-view.about-portfolio .portfolio-hint-close {display:none;}
+.about-view.about-portfolio .portfolio-internship[open] .portfolio-hint-open {display:none;}
+.about-view.about-portfolio .portfolio-internship[open] .portfolio-hint-close {display:inline;}
+.about-view.about-portfolio .portfolio-internship[open] .portfolio-expand-hint svg {transform:rotate(180deg);}
+.about-view.about-portfolio .portfolio-internship-content {padding:0 22px 22px;}
+.about-view.about-portfolio .portfolio-internship-content .entry-list {display:grid;gap:13px;margin:0;padding-top:17px;border-top:1px solid var(--portfolio-line);}
+.about-view.about-portfolio .portfolio-internship-content .entry-list li {font-size:17px;line-height:1.8;color:#607d98;padding-left:25px;}
+.about-view.about-portfolio .portfolio-internship-content .entry-list li>strong {color:#466683;}
+.about-view.about-portfolio .portfolio-internship-content .entry-list b {color:#486e91;font-weight:650;}
+.about-view.about-portfolio .portfolio-company-top {display:flex;align-items:baseline;justify-content:space-between;gap:12px;}
+.about-view.about-portfolio .portfolio-company-top h3 {margin:0;color:#2888ca;font-size:28px;font-weight:800;line-height:1.2;}
+.about-view.about-portfolio .portfolio-internship--oppo .portfolio-company-top h3 {color:#21a077;}
+.about-view.about-portfolio .portfolio-company-top time {font-size:15px;color:#8b9bad;white-space:nowrap;}
+.about-view.about-portfolio .portfolio-position {margin:9px 0 19px;color:#8b9bad;font-size:17px;line-height:1.5;}
+.about-view.about-portfolio .portfolio-topic-list {list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;}
+.about-view.about-portfolio .portfolio-topic-list>span {border-top:1px solid var(--portfolio-line);padding-top:11px;color:#425c79;font-size:17px;font-weight:600;white-space:normal;}
+.about-view.about-portfolio .portfolio-project-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;}
+.about-view.about-portfolio .portfolio-project {padding-top:12px;border-top:2px solid #65a7f3;min-width:0;}
+.about-view.about-portfolio .portfolio-project-type {margin:0 0 10px;font-size:14px;line-height:1.5;color:#8b9bad;}
+.about-view.about-portfolio .portfolio-project h3 {margin:0;font-size:22px;font-weight:800;line-height:1.4;letter-spacing:-.025em;color:var(--portfolio-ink);}
+.about-view.about-portfolio .portfolio-project-steps {list-style:none;margin:16px 0 0 4px;padding:0 0 0 14px;border-left:1px solid rgb(116 158 197 / 26%);color:#71879f;font-size:18px;line-height:1.5;}
+.about-view.about-portfolio .portfolio-project-steps li {position:relative;min-height:27px;margin:0 0 5px;}
+.about-view.about-portfolio .portfolio-project-steps li:last-child {margin-bottom:0;}
+.about-view.about-portfolio .portfolio-project-steps li::before {content:"";position:absolute;width:5px;height:5px;left:-17px;top:9px;border-radius:50%;background:#9ab8d2;}
+.about-view.about-portfolio .portfolio-project-result {margin:16px 0 0;border-top:1px solid var(--portfolio-line);padding-top:12px;color:#42746e;font-size:16px;font-weight:600;line-height:1.5;}
+.about-view.about-portfolio .portfolio-bottom {display:grid;grid-template-columns:minmax(280px, .78fr) minmax(0,1.22fr);gap:28px;padding-top:23px;border-top:1px solid var(--portfolio-line);}
+.about-view.about-portfolio .portfolio-bottom .section-heading {font-size:27px;margin-bottom:19px;}
+.about-view.about-portfolio .honor-totals {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;justify-content:stretch;width:100%;margin:0;text-align:left;}
+.about-view.about-portfolio .honor-totals>div {display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-width:0;}
+.about-view.about-portfolio .honor-totals strong {font-size:34px;font-weight:500;line-height:1;color:#3e648d;}
+.about-view.about-portfolio .honor-totals span {font-size:16px;font-weight:600;line-height:1.5;color:#425c79;white-space:normal;}
+.about-view.about-portfolio .skill-icons {display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:12px;margin:0;padding:0;list-style:none;width:100%;}
+.about-view.about-portfolio .skill-icons li {display:flex;flex-direction:column;align-items:center;gap:8px;min-width:0;}
+.about-view.about-portfolio .skill-icon {display:block;width:43px;height:43px;padding:0;border:0;border-radius:9px;background:transparent;}
+.about-view.about-portfolio .skill-icon img {display:block;width:100%;height:100%;}
+.about-view.about-portfolio .skill-name {font-size:13px;line-height:1.4;color:#8b9bad;white-space:normal;overflow-wrap:anywhere;text-align:center;}
+@media (max-width:1250px) {
+  .about-view.about-portfolio .about-portfolio-layout {gap:28px;}
+  .about-view.about-portfolio .portfolio-school-top,.about-view.about-portfolio .portfolio-company-top {flex-wrap:wrap;gap:5px;}
+  .about-view.about-portfolio .portfolio-topic-list {grid-template-columns:1fr;gap:8px;}
+  .about-view.about-portfolio .portfolio-topic-list>span {padding-top:8px;}
+  .about-view.about-portfolio .portfolio-bottom {grid-template-columns:1fr;gap:24px;}
+}
+@media (max-width:900px) {
+  .about-view.about-portfolio .about-portfolio-layout {grid-template-columns:210px minmax(0,1fr);gap:26px;}
+  .about-view.about-portfolio .about-profile {display:block;min-height:0;}
+  .about-view.about-portfolio .about-main-content {min-height:0;justify-content:flex-start;}
+  .about-view.about-portfolio .portfolio-introduction {margin-bottom:0;}
+  .about-view.about-portfolio .about-contact {margin-top:22px;}
+  .about-view.about-portfolio .about-title {font-size:50px;}
+  .about-view.about-portfolio .about-main-content {gap:30px;}
+  .about-view.about-portfolio .portfolio-education-grid,.about-view.about-portfolio .portfolio-experience-grid,.about-view.about-portfolio .portfolio-project-grid {grid-template-columns:1fr;gap:22px;}
+  .about-view.about-portfolio .portfolio-school-top {flex-wrap:nowrap;}
+  .about-view.about-portfolio .portfolio-school-top h3 {font-size:21px;}
+  .about-view.about-portfolio .portfolio-school-top {flex-wrap:wrap;}
+  .about-view.about-portfolio .portfolio-topic-list {grid-template-columns:1fr;gap:10px;}
+  .about-view.about-portfolio .portfolio-topic-list>span {font-size:16px;}
+}
+@media (max-width:650px) {
+  .about-view.about-portfolio .about-portfolio-layout {display:block;padding:22px 0 40px;}
+  .about-view.about-portfolio .about-title {display:flex;gap:15px;font-size:46px;line-height:1.1;margin-bottom:16px;}
+  .about-view.about-portfolio .about-title>span+span {margin:0;}
+  .about-view.about-portfolio .about-portrait-wrap {width:min(100%,286px);height:auto;aspect-ratio:3/4;}
+  .about-view.about-portfolio .portfolio-name {font-size:38px;}
+  .about-view.about-portfolio .about-contact {margin-top:22px;max-width:360px;gap:5px;}
+  .about-view.about-portfolio .about-contact button {min-height:40px;font-size:14px;}
+  .about-view.about-portfolio :is(.about-resume,.about-portfolio-download) {max-width:360px;min-height:44px;font-size:14px;}
+  .about-view.about-portfolio .about-main-content {padding-top:38px;gap:32px;}
+  .about-view.about-portfolio .section-heading {font-size:27px;margin-bottom:18px;}
+  .about-view.about-portfolio .portfolio-school p {font-size:17px;}
+  .about-view.about-portfolio :is(.portfolio-school,.portfolio-company-top) time {font-size:14px;}
+  .about-view.about-portfolio .portfolio-internship-summary {padding:20px 18px 16px;}
+  .about-view.about-portfolio .portfolio-internship-content {padding:0 18px 20px;}
+  .about-view.about-portfolio .portfolio-company-top {flex-wrap:wrap;}
+  .about-view.about-portfolio .portfolio-topic-list {grid-template-columns:1fr;gap:8px;}
+  .about-view.about-portfolio .portfolio-topic-list>span {font-size:16px;}
+  .about-view.about-portfolio .portfolio-project h3 {font-size:22px;}
+  .about-view.about-portfolio .portfolio-project-steps {font-size:17px;}
+  .about-view.about-portfolio .portfolio-project-result {font-size:16px;}
+  .about-view.about-portfolio .portfolio-bottom {display:block;}
+  .about-view.about-portfolio .portfolio-skills {margin-top:28px;}
+  .about-view.about-portfolio .honor-totals {gap:10px;}
+  .about-view.about-portfolio .honor-totals strong {font-size:34px;}
+  .about-view.about-portfolio .honor-totals span {font-size:14px;white-space:normal;}
+  .about-view.about-portfolio .skill-icons {grid-template-columns:repeat(4,minmax(0,1fr));gap:20px 8px;}
+  .about-view.about-portfolio .skill-icon {width:44px;height:44px;}
+  .about-view.about-portfolio .skill-name {font-size:12px;white-space:nowrap;overflow-wrap:normal;letter-spacing:-.015em;}
+}
+@media (max-width:360px) {
+  .about-view.about-portfolio .about-title {font-size:39px;gap:12px;}
+  .about-view.about-portfolio .about-contact button {font-size:14px;}
+  .about-view.about-portfolio .honor-totals {grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;}
+}
+
+/* Reference desktop typography. The board below scales these values together.
+   Narrow screens retain their readable document flow. */
+@media (min-width:901px) {
+  .about-view.about-portfolio .about-portfolio-layout {grid-template-columns:clamp(230px,18.2vw,310px) minmax(0,1fr);gap:32px;padding:12px 0 16px;}
+  .about-view.about-portfolio .about-title {font-size:60px;line-height:1.03;margin-bottom:10px;}
+  .about-view.about-portfolio .about-title>span+span {margin-top:8px;}
+  .about-view.about-portfolio .about-portrait-wrap {height:clamp(280px,38vh,430px);}
+  .about-view.about-portfolio .portfolio-introduction {margin:14px 0 18px;}
+  .about-view.about-portfolio .portfolio-greeting {font-size:17px;}
+  .about-view.about-portfolio .portfolio-name {font-size:40px;}
+  .about-view.about-portfolio .about-contact {padding-top:10px;}
+  .about-view.about-portfolio .about-contact button {min-height:34px;font-size:15px;}
+  .about-view.about-portfolio :is(.about-resume,.about-portfolio-download) {min-height:40px;font-size:15px;padding-block:7px;}
+  .about-view.about-portfolio .about-main-content {gap:18px;padding-top:4px;}
+  .about-view.about-portfolio .section-heading {margin-bottom:12px;}
+  .about-view.about-portfolio .portfolio-education-grid {padding-bottom:12px;}
+  .about-view.about-portfolio .portfolio-school p {margin-top:6px;}
+  .about-view.about-portfolio .portfolio-internship-summary {padding:16px 18px 12px;}
+  .about-view.about-portfolio .portfolio-position {margin:6px 0 12px;}
+  .about-view.about-portfolio .portfolio-topic-list {gap:10px;}
+  .about-view.about-portfolio .portfolio-topic-list>span {padding-top:9px;}
+  .about-view.about-portfolio .portfolio-expand-hint {margin-top:7px;}
+  .about-view.about-portfolio .portfolio-project-type {margin-bottom:6px;}
+  .about-view.about-portfolio .portfolio-project-steps {margin-top:12px;}
+  .about-view.about-portfolio .portfolio-project-steps li {min-height:26px;margin-bottom:3px;}
+  .about-view.about-portfolio .portfolio-project-steps li:last-child {margin-bottom:0;}
+  .about-view.about-portfolio .portfolio-project-result {margin-top:12px;padding-top:8px;}
+  .about-view.about-portfolio .portfolio-bottom {padding-top:16px;gap:24px;}
+  .about-view.about-portfolio .portfolio-bottom .section-heading {margin-bottom:12px;}
+}
+
+/* Internship details float over the next section without changing its layout. */
+.about-view.about-portfolio .portfolio-internship {position:relative;}
+.about-view.about-portfolio .portfolio-internship[open] {z-index:6;border-bottom-color:transparent;border-bottom-left-radius:0;border-bottom-right-radius:0;}
+.about-view.about-portfolio .portfolio-internship-content {position:absolute;z-index:1;left:-1px;right:-1px;top:calc(100% - 1px);max-height:min(60dvh,560px);overflow:auto;overscroll-behavior:contain;padding:0 22px 22px;border:1px solid rgb(126 168 203 / 30%);border-top:0;border-radius:0 0 11px 11px;background:#f8fcff;box-shadow:0 16px 30px rgb(35 67 99 / 15%);}
+.about-view.about-portfolio .portfolio-internship:not([open]) .portfolio-internship-content {display:none;}
+@media(max-width:650px) {.about-view.about-portfolio .portfolio-internship-content {padding:0 18px 20px;max-height:68dvh;}}
+
+/* Preserve the accepted 1706px laptop composition, independent of viewport.
+   Only this internal board scales; the shared navigation stays at screen size. */
+.about-view.about-portfolio.is-board-fitted {overflow:clip;--heading-gap:12px;}
+.about-view.about-portfolio.is-board-fitted .about-fit-frame {position:relative;width:100%;height:100%;overflow:clip;}
+.page #about-view.about-portfolio.is-board-fitted .about-portfolio-layout {position:absolute;left:var(--about-board-x,0px);top:var(--about-board-y,12px);width:1480.8125px;height:815px;grid-template-columns:310px minmax(0,1fr);gap:32px;margin:0;padding:0;transform:scale(var(--about-board-scale,1));transform-origin:top left;}
+.about-view.about-portfolio.is-board-fitted :is(.about-profile,.about-main-content) {height:815px;min-height:815px;}
+/* Align visible title caps and the last button border with the right column.
+   The contact block's auto margin absorbs the remaining left-column space. */
+.about-view.about-portfolio.is-board-fitted .about-profile {padding:1px 0;}
+.about-view.about-portfolio.is-board-fitted .about-portrait-wrap {height:337.4375px;}
+.about-view.about-portfolio.is-board-fitted :is(.portfolio-school-top,.portfolio-company-top) {flex-wrap:nowrap;gap:12px;}
+.about-view.about-portfolio.is-board-fitted .portfolio-topic-list {grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;}
+.about-view.about-portfolio.is-board-fitted .portfolio-bottom {grid-template-columns:minmax(280px,.78fr) minmax(0,1.22fr);gap:24px;}
+.about-view.about-portfolio.is-board-fitted .portfolio-internship-content {max-height:var(--internship-popover-height,480px);}

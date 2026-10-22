@@ -1,0 +1,470 @@
+/* About page layout and dialogs; homepage colors and original PNGs remain intact. */
+.about-view,
+.about-view *,
+.wechat-dialog,
+.wechat-dialog *,
+.award-dialog,
+.award-dialog * { box-sizing: border-box; }
+
+.about-view {
+  position: absolute;
+  inset: var(--about-top, 56px) 0 0;
+  z-index: 1;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: auto;
+  color: var(--ink, #18181b);
+  --entry-title-size: 14px;
+  --section-gap: 18px;
+  --section-inset: 14px;
+  --entry-gap: 18px;
+  --heading-gap: 12px;
+  --list-top: 8px;
+  --list-gap: 8px;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.about-view[hidden] { display: none !important; }
+
+.page[data-active-view="about"] { --about-gutter: var(--page-gutter); }
+
+.about-layout {
+  display: grid;
+  --side-width: clamp(242px, 33.5vh, 300px);
+  grid-template-columns: var(--side-width) repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: clamp(38px, 3.6vw, 58px);
+  width: calc(100% - 2 * var(--about-gutter, 36px));
+  margin: 0 auto;
+  padding: 12px 0 max(6px, env(safe-area-inset-bottom));
+}
+
+.about-profile,
+.about-column,
+.about-section { min-width: 0; }
+
+.about-profile { align-self: start; }
+
+.about-portrait-wrap {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  margin: 0;
+}
+
+.about-portrait {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.about-title {
+  margin: var(--entry-gap) 0 var(--heading-gap);
+  color: var(--letter-color, #3c3b3b);
+  font: inherit;
+  text-align: left;
+}
+
+.about-title > span,
+.about-title > strong {
+  display: block;
+  max-width: 100%;
+  font-size: 26px;
+  font-weight: 650;
+  line-height: 1.15;
+  letter-spacing: -.035em;
+}
+
+.about-title > span { margin-bottom: 4px; font-size: 28px; }
+.about-title > strong { white-space: nowrap; overflow-wrap: normal; }
+
+.about-intro {
+  margin: 0;
+  color: var(--muted, #52525b);
+  font-size: 13px;
+  line-height: 1.75;
+  overflow-wrap: break-word;
+}
+
+.about-intro p { margin: 0 0 7px; }
+.about-intro p:last-child { margin-bottom: 0; }
+.about-intro strong { color: var(--ink, #18181b); font-weight: 600; }
+.about-personal { display: block; margin-top: 0; }
+
+.about-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 3px;
+  margin: var(--heading-gap) 0;
+}
+
+.about-contact a,
+.about-contact button,
+:where(.about-view, .wechat-dialog) .about-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 7px;
+  min-height: 28px;
+  max-width: 100%;
+  border: 0;
+  padding: 3px 0;
+  background-color: transparent;
+  background-image: linear-gradient(var(--accent, #fbc243), var(--accent, #fbc243));
+  background-position: left bottom;
+  background-size: 0 2px;
+  background-repeat: no-repeat;
+  color: var(--ink, #18181b);
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.6;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+  transition: transform 180ms ease, background-size 220ms ease;
+}
+
+.about-contact > :is(a, button) > span:first-child { color: var(--muted, #52525b); }
+.about-contact > :is(a, button) > span:last-child { display: inline-flex; align-items: center; gap: 6px; }
+
+.about-contact svg,
+:where(.about-view, .wechat-dialog) .about-action svg,
+.about-resume svg {
+  flex: 0 0 auto;
+  width: 15px;
+  height: 15px;
+  color: inherit;
+  fill: none;
+  stroke: currentColor;
+}
+
+.about-view .about-resume {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-height: 38px;
+  border: 1px solid rgb(60 59 59 / 35%);
+  border-radius: 4px;
+  padding: 8px 12px;
+  background: transparent;
+  color: var(--ink, #18181b);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-decoration: none;
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+:where(.about-view, .wechat-dialog, .award-dialog) :is(a, button):focus-visible {
+  outline: 2px solid var(--accent, #fbc243);
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+
+/* Desktop columns share the measured module spacing; smaller screens use natural flow. */
+.about-section + .about-section { margin-top: var(--aligned-section-gap, var(--section-gap)); border-top: 1px solid rgb(82 82 91 / 17%); padding-top: var(--section-inset); }
+.about-view .section-heading { max-width: 100%; margin: 0 0 var(--heading-gap); color: #000; font-family: inherit; font-size: 24px; font-weight: 650; line-height: 1.06; letter-spacing: -.035em; }
+.about-view .resume-entry + .resume-entry { margin-top: var(--entry-gap); }
+.about-view .entry-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 3px 8px; }
+.about-view .entry-heading h3 { min-width: 0; flex: 1 1 auto; margin: 0; color: var(--ink, #18181b); font-size: var(--entry-title-size); font-weight: 650; line-height: 1.55; overflow-wrap: break-word; }
+.about-view .entry-heading time { color: var(--muted, #52525b); font-size: inherit; font-weight: 400; line-height: 1.6; white-space: nowrap; }
+.about-view .entry-heading--job,
+.about-view .entry-heading--project { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; column-gap: 8px; }
+.about-view .entry-role-inline,
+.about-view .project-role { min-width: 0; font-size: var(--entry-title-size); font-weight: 400; line-height: 1.6; text-align: center; }
+.about-view .project-role { color: var(--muted, #52525b); white-space: nowrap; }
+.about-view .entry-role { margin: 3px 0 0; color: var(--muted, #52525b); font-size: inherit; line-height: inherit; }
+.about-view .entry-role strong { color: var(--muted, #52525b); font-weight: 700; }
+.about-view .entry-note { color: var(--muted, #52525b); font-size: 14px; font-weight: 700; }
+.about-view [aria-labelledby="education-heading"] .entry-heading h3 { color: var(--letter-color, #3c3b3b); }
+.about-view .entry-list { display: grid; gap: var(--list-gap); margin: var(--list-top) 0 0; padding: 0; list-style: none; }
+.about-view .entry-list li,
+.about-view .entry-result { position: relative; margin: 0; padding-left: 23px; color: var(--muted, #52525b); font-size: inherit; line-height: inherit; overflow-wrap: break-word; }
+.about-view .entry-list li > strong,
+.about-view .entry-result > strong { margin-right: .15em; color: var(--letter-color, #3c3b3b); font-weight: 600; }
+.about-view .entry-icon { position: absolute; top: .32em; left: 0; display: block; width: 1.06em; height: 1.06em; object-fit: contain; }
+.about-view .entry-result { margin-top: var(--list-gap); }
+/* School and project names match the greeting; internship names retain their sampled colors. */
+.about-view .entry-heading--midea { --entry-color: #15a5fa; }
+.about-view .entry-heading--oppo { --entry-color: #16bb73; }
+.about-view .entry-heading--project { --entry-color: var(--letter-color, #3c3b3b); }
+.about-view .entry-heading--project > h3 { position: relative; display: flex; align-items: center; gap: 6px; }
+.about-view .project-name { min-width: 0; }
+/* Project symbols align with PROJECTS; content is inset to their right. */
+.about-view .project-symbol { position: absolute; left: -28px; top: .775em; transform: translateY(-50%); display: block; width: 20px; height: 20px; object-fit: contain; }
+.about-view [aria-labelledby="projects-heading"] .resume-entry { position: relative; margin-left: 28px; }
+.about-view [aria-labelledby="projects-heading"] .resume-entry:not(:last-child)::after { content: ""; position: absolute; left: -18px; top: 28px; bottom: calc(-1 * var(--entry-gap) + 7px); width: 1px; background: rgb(82 82 91 / 17%); pointer-events: none; }
+.about-view :is(.entry-heading--job, .entry-heading--project) > :is(h3, span, time) { color: var(--entry-color); font-size: var(--entry-title-size); }
+.about-view :is(.entry-heading--job, .entry-heading--project) > :is(span, time) { font-weight: 400; }
+.award-summary { display: grid; grid-template-columns: minmax(0, 1fr); justify-items: center; gap: var(--heading-gap); width: 100%; }
+.about-view .honor-totals { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; width: 100%; margin: 0; text-align: center; }
+.about-view .honor-totals > * { display: flex; min-width: 0; flex-direction: column; align-items: center; gap: 3px; }
+.about-view .honor-totals strong { color: var(--letter-color, #3c3b3b); font-size: 26px; font-weight: 600; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.about-view .honor-totals span { color: var(--muted, #52525b); font-size: inherit; line-height: inherit; white-space: nowrap; }
+/* Center both the statistics and the certificate collage in column three. */
+.award-collage { position: relative; isolation: isolate; justify-self: center; width: calc(75% + 6px + 3.5em); aspect-ratio: 2.8; max-height: 154px; margin: 12px 0 0; }
+.about-view .skill-icons { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 8px; margin: 0; padding: 0; list-style: none; }
+.about-view #skills-heading { margin-bottom: calc(var(--heading-gap) + 6px); }
+.about-view .skill-icons li { display: flex; flex-direction: column; align-items: center; min-width: 0; gap: 4px; }
+.about-view .skill-icon { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; }
+.about-view .skill-icon :is(img, svg) { display: block; width: 100%; height: 100%; object-fit: contain; }
+.about-view .skill-name { color: var(--muted, #52525b); font-size: 11px; line-height: 1.3; text-align: center; }
+
+.wechat-dialog {
+  position: fixed;
+  inset: 0;
+  width: min(360px, calc(100vw - 40px));
+  max-height: calc(100dvh - 40px);
+  margin: auto;
+  border: 1px solid rgb(82 82 91 / 15%);
+  border-radius: 12px;
+  padding: 29px;
+  overflow-y: auto;
+  background: #fffcf9;
+  color: var(--ink, #18181b);
+  box-shadow: 0 18px 70px rgb(24 24 27 / 16%);
+}
+
+.wechat-dialog::backdrop { background: rgb(24 24 27 / 24%); backdrop-filter: blur(5px); }
+.wechat-dialog h2 { margin: 0 24px 8px 0; font-size: 20px; font-weight: 600; line-height: 1.5; }
+.wechat-dialog p { margin: 0 0 16px; color: var(--muted, #52525b); font-size: 13px; line-height: 1.8; }
+.wechat-image { display: block; width: min(100%, 260px); height: auto; margin: 18px auto; object-fit: contain; }
+
+.wechat-dialog .dialog-close {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 50%;
+  padding: 0;
+  background: transparent;
+  color: var(--muted, #52525b);
+  font: inherit;
+  font-size: 23px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.wechat-dialog .dialog-close svg { width: 16px; height: 16px; fill: none; stroke: currentColor; }
+.wechat-dialog .dialog-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 10px 18px; margin-top: 16px; }
+
+#about-copy-status {
+  position: fixed;
+  z-index: 20;
+  left: 50%;
+  bottom: max(20px, env(safe-area-inset-bottom));
+  width: max-content;
+  max-width: calc(100vw - 32px);
+  border: 1px solid rgb(82 82 91 / 17%);
+  border-radius: 6px;
+  padding: 9px 16px;
+  background: #fffcf9;
+  color: var(--ink, #18181b);
+  font-size: 12px;
+  line-height: 1.6;
+  text-align: center;
+  box-shadow: 0 4px 18px rgb(24 24 27 / 8%);
+  opacity: 0;
+  transform: translate(-50%, 5px);
+  pointer-events: none;
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+#about-copy-status.is-visible { opacity: 1; transform: translate(-50%, 0); }
+
+@media (hover: hover) and (pointer: fine) {
+  .about-contact :is(a, button):hover,
+  :where(.about-view, .wechat-dialog) .about-action:hover { transform: translateY(-1px); background-size: 100% 2px; }
+  .about-view .about-resume:hover { transform: translateY(-2px); border-color: var(--accent, #fbc243); }
+  .wechat-dialog .dialog-close:hover { color: var(--ink, #18181b); background: rgb(82 82 91 / 7%); }
+}
+
+
+.award-card {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  left: var(--paper-x);
+  top: var(--paper-y);
+  width: auto;
+  height: 80%;
+  aspect-ratio: var(--paper-ratio, .707);
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background: #fff;
+  box-shadow: 0 2px 3px rgb(24 24 27 / 14%), 0 6px 12px rgb(24 24 27 / 9%);
+  transform: translateX(var(--paper-shift, 0%)) rotate(var(--paper-angle, 0deg));
+  transform-origin: center bottom;
+  cursor: zoom-in;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.award-card img { display: block; width: 100%; height: 100%; object-fit: contain; filter: none; opacity: 1; user-select: none; -webkit-user-drag: none; }
+.award-card--rotated img { position: absolute; width: var(--rotated-width); height: var(--rotated-height); left: var(--rotated-left); top: var(--rotated-top); transform: rotate(-90deg); }
+.award-card--landscape { height: 46.666667%; }
+.award-card:focus-visible { z-index: 10; transform: translateX(var(--paper-shift, 0%)) translateY(-4px) rotate(0deg); }
+
+.award-dialog {
+  position: fixed;
+  width: min(980px, calc(100vw - 40px));
+  max-height: calc(100dvh - 32px);
+  inset: 0;
+  margin: auto;
+  border: 1px solid rgb(82 82 91 / 15%);
+  border-radius: 10px;
+  padding: 24px 28px 18px;
+  overflow-y: auto;
+  background: #fffcf9;
+  color: var(--ink, #18181b);
+  box-shadow: 0 18px 70px rgb(24 24 27 / 20%);
+}
+.award-dialog::backdrop { background: rgb(24 24 27 / 35%); backdrop-filter: blur(5px); }
+.award-dialog h2 { margin: 0 35px 15px 0; font-size: 15px; font-weight: 600; line-height: 1.6; }
+.award-dialog .dialog-close { position: absolute; top: 17px; right: 17px; display: grid; place-items: center; width: 30px; height: 30px; border: 0; padding: 7px; border-radius: 50%; background: transparent; color: var(--muted); cursor: pointer; }
+.award-dialog .dialog-close svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; }
+.award-viewer-stage { display: flex; justify-content: center; align-items: center; width: 100%; height: min(70dvh, 760px); min-height: 100px; }
+.award-viewer-image { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; filter: none; opacity: 1; }
+.award-dialog.is-rotated .award-viewer-image { max-width: min(65dvh, 65vw); max-height: min(85vw, 85dvh); transform: rotate(-90deg); }
+.award-viewer-controls { display: flex; justify-content: center; align-items: center; gap: 24px; margin-top: 12px; }
+.award-viewer-controls button { width: 40px; height: 34px; border: 1px solid rgb(82 82 91 / 20%); border-radius: 4px; background: transparent; color: var(--ink); font: inherit; font-size: 18px; cursor: pointer; }
+.award-viewer-controls span { min-width: 36px; color: var(--muted); font-size: 12px; text-align: center; }
+
+@media (hover: hover) and (pointer: fine) {
+  .award-card:hover { z-index: 10; transform: translateX(var(--paper-shift, 0%)) translateY(-5px) rotate(0deg); box-shadow: 0 4px 7px rgb(24 24 27 / 14%), 0 10px 20px rgb(24 24 27 / 12%); }
+  .award-dialog button:hover { background-color: rgb(82 82 91 / 6%); }
+}
+
+@media (min-width: 1151px) and (max-height: 800px) {
+  .about-view { --entry-title-size: 13.5px; --section-gap: 16px; --section-inset: 12px; --entry-gap: 16px; --heading-gap: 10px; --list-top: 7px; --list-gap: 7px; font-size: 13px; line-height: 1.7; }
+  .about-layout { padding-top: 8px; padding-bottom: max(3px, env(safe-area-inset-bottom)); }
+  .about-title { margin-top: var(--entry-gap); }
+  .about-title > strong { font-size: 24px; }
+  .about-intro { font-size: 12.5px; line-height: 1.7; }
+  .about-contact button { min-height: 27px; font-size: 12.5px; }
+  .about-view .section-heading { font-size: 22px; }
+  .about-view .entry-heading h3 { line-height: 1.5; }
+  .about-view [aria-labelledby="projects-heading"] { --entry-gap: 14px; --list-top: 6px; --list-gap: 5px; }
+  .about-view .entry-note { font-size: 13px; }
+  .about-view .honor-totals strong { font-size: 24px; }
+  .about-view .skill-icon { width: 24px; height: 24px; }
+  .about-view .skill-name { font-size: 10px; }
+  .award-collage { max-height: 138px; }
+}
+@media (min-width: 1600px) and (min-height: 801px) {
+  .about-view .skill-icon { width: clamp(32px, calc(7.5vw - 88px), 56px); height: clamp(32px, calc(7.5vw - 88px), 56px); }
+}
+@media (max-width: 1150px) {
+  .about-layout { --side-width: clamp(210px, 28vw, 280px); grid-template-columns: var(--side-width) minmax(0, 1fr); gap: 36px; padding-top: 20px; padding-bottom: 40px; }
+  .about-profile { grid-row: span 2; }
+  .about-projects { grid-column: 2; }
+  .about-view .skill-icons { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px 8px; }
+  .about-view .skill-icon { width: 36px; height: 36px; }
+}
+@media (max-width: 760px) {
+  .page[data-active-view="about"] { --about-gutter: 24px; }
+  .about-view { --entry-title-size: 16px; --section-gap: 24px; --section-inset: 20px; --entry-gap: 24px; --heading-gap: 16px; --list-top: 10px; --list-gap: 10px; font-size: 15px; line-height: 1.8; }
+  .about-layout { grid-template-columns: minmax(0, 1fr); gap: 32px; padding-top: 20px; padding-bottom: max(40px, env(safe-area-inset-bottom)); }
+  .about-profile { grid-row: auto; }
+  .about-projects { grid-column: auto; }
+  .about-portrait-wrap { width: min(100%, 260px); margin-left: 0; }
+  .about-title > strong { font-size: 28px; }
+  .about-intro { font-size: 15px; line-height: 1.8; }
+  .about-contact { margin: var(--heading-gap) 0; gap: 7px; }
+  .about-contact button { min-height: 36px; font-size: 14px; }
+  .about-view .about-resume { min-height: 44px; font-size: 14px; }
+  .about-view .section-heading { font-size: 26px; }
+  .about-view .entry-note { font-size: 15px; }
+  .about-view .entry-heading--job,
+  .about-view .entry-heading--project { grid-template-columns: minmax(0, 1fr) auto; gap: 4px 8px; }
+  .about-view .entry-heading--job h3,
+  .about-view .entry-heading--project h3 { grid-column: 1 / -1; }
+  .about-view .entry-role-inline,
+  .about-view .entry-heading--project .project-role { justify-self: start; white-space: normal; }
+  .about-view .entry-heading--job time,
+  .about-view .entry-heading--project time { justify-self: end; }
+  .about-view .honor-totals strong { font-size: 25px; }
+  .about-view .skill-icons { gap: 18px 10px; }
+  .about-view .skill-icon { width: 40px; height: 40px; }
+  .about-view .skill-name { font-size: 12px; }
+  .award-dialog { width: calc(100vw - 24px); padding: 20px 14px 16px; }
+  .award-dialog h2 { font-size: 13px; }
+  .award-dialog .dialog-close { top: 12px; right: 10px; width: 36px; height: 36px; padding: 10px; }
+  .award-viewer-controls button { height: 40px; width: 44px; }
+}
+@media (max-width: 380px) {
+  .page[data-active-view="about"] { --about-gutter: 20px; }
+  .about-title > strong { font-size: 26px; }
+  .about-view .entry-heading--job { column-gap: 4px; }
+  .wechat-dialog { padding: 25px; }
+}
+
+/* Preserve the accepted laptop composition on larger desktop screens.
+   Dialogs and the shared navigation retain their normal screen sizes. */
+.about-view.is-fitted {
+  overflow: clip;
+  --entry-title-size: 14px;
+  --section-gap: 18px;
+  --section-inset: 14px;
+  --entry-gap: 18px;
+  --heading-gap: 12px;
+  --list-top: 8px;
+  --list-gap: 8px;
+  font-size: 14px;
+  line-height: 1.75;
+}
+.about-view.is-measuring[hidden] { display: block !important; visibility: hidden; pointer-events: none; }
+.about-view.is-fitted .about-layout {
+  position: absolute;
+  left: var(--about-fit-x, 0px);
+  top: var(--about-fit-y, 12px);
+  --side-width: 298px;
+  width: 1621px;
+  grid-template-columns: var(--side-width) repeat(2, minmax(0, 1fr));
+  gap: 58px;
+  margin: 0;
+  padding: 0;
+  transform: scale(var(--about-fit-scale, 1));
+  transform-origin: top left;
+}
+.about-view.is-fitted .about-title > strong { font-size: 26px; }
+.about-view.is-fitted .about-intro { font-size: 13px; line-height: 1.75; }
+.about-view.is-fitted .about-contact button { min-height: 28px; font-size: 13px; }
+.about-view.is-fitted .section-heading { font-size: 24px; }
+.about-view.is-fitted .entry-heading h3 { line-height: 1.55; }
+.about-view.is-fitted [aria-labelledby="projects-heading"] { --entry-gap: 18px; --list-top: 8px; --list-gap: 8px; }
+.about-view.is-fitted .entry-note { font-size: 14px; }
+.about-view.is-fitted .honor-totals strong { font-size: 26px; }
+.about-view.is-fitted .skill-icon { width: 40px; height: 40px; }
+.about-view.is-fitted .skill-name { font-size: 11px; }
+.about-view.is-fitted .award-collage { max-height: 154px; }
+@media (prefers-reduced-motion: reduce) {
+  .about-contact a,
+  .about-contact button,
+  :where(.about-view, .wechat-dialog) .about-action,
+  .about-view .about-resume,
+  .award-card,
+  #about-copy-status { transition: none; }
+  .about-contact :is(a, button):hover,
+  :where(.about-view, .wechat-dialog) .about-action:hover,
+  .about-view .about-resume:hover { transform: none; }
+  .award-card:hover,
+  .award-card:focus-visible { transform: translateX(var(--paper-shift, 0%)) rotate(var(--paper-angle, 0deg)); }
+}
+

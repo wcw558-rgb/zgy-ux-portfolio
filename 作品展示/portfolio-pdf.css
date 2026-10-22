@@ -1,0 +1,47 @@
+.full-portfolio-dialog {
+  box-sizing:border-box;
+  position:fixed;
+  inset:0;
+  width:min(1800px,96vw);
+  height:94dvh;
+  max-width:calc(100vw - 16px);
+  max-height:calc(100dvh - 16px);
+  margin:auto;
+  padding:0;
+  overflow:hidden;
+  border:1px solid #ffffffcc;
+  border-radius:15px;
+  background:#fff;
+  color:#303b48;
+  box-shadow:0 24px 100px #0e1b315c;
+  font:15px/1.5 Inter,"Microsoft YaHei","PingFang SC",sans-serif;
+}
+.full-portfolio-dialog[open] {display:flex;flex-direction:column;}
+.full-portfolio-dialog *, .full-portfolio-dialog *::before, .full-portfolio-dialog *::after {box-sizing:border-box;}
+.full-portfolio-dialog::backdrop {background:#15213699;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
+.full-portfolio-header {display:flex;align-items:center;justify-content:space-between;flex:0 0 auto;gap:20px;min-height:64px;padding:10px 14px 10px 24px;background:#fff;border-bottom:1px solid #e6eaf0;}
+.full-portfolio-header h2 {margin:0;min-width:0;font-size:17px;line-height:1.4;font-weight:600;}
+.full-portfolio-actions {display:flex;align-items:center;gap:16px;flex:none;}
+.full-portfolio-download {display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:40px;color:#586e84;font-size:13px;line-height:1.4;text-decoration:none;}
+.full-portfolio-download svg {width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5;}
+.full-portfolio-close {appearance:none;display:grid;place-items:center;flex:none;width:42px;height:42px;margin:0;padding:0;border:0;border-radius:50%;background:#f0f3f7;color:#46596b;cursor:pointer;}
+.full-portfolio-close svg {width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;}
+.full-portfolio-dialog :is(a,button):focus-visible,.full-portfolio-scroll:focus-visible {outline:2px solid #397fc2;outline-offset:3px;}
+.full-portfolio-scroll {flex:1 1 auto;min-height:0;min-width:0;width:100%;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable both-edges;background:#fff;touch-action:pan-y pinch-zoom;}
+.full-portfolio-document {width:min(1440px,100%);margin:0 auto;padding:0;background:#fff;}
+.full-portfolio-sheet {display:block;margin:0;padding:0;border:0;background:#fff;}
+.full-portfolio-tile {display:block;width:100%;height:auto;max-width:none;margin:0;padding:0;border:0;background:#fff;filter:none;opacity:1;mix-blend-mode:normal;}
+@media (max-width:600px) {
+  .full-portfolio-dialog {width:calc(100vw - 12px);max-width:calc(100vw - 12px);height:96dvh;max-height:calc(100dvh - 12px);border-radius:10px;}
+  .full-portfolio-header {min-height:60px;gap:10px;padding:8px 8px 8px 14px;}
+  .full-portfolio-header h2 {font-size:14px;}
+  .full-portfolio-actions {gap:10px;}
+  .full-portfolio-download {gap:5px;font-size:11px;}
+  .full-portfolio-download svg {width:16px;height:16px;}
+  .full-portfolio-close {width:40px;height:40px;}
+  .full-portfolio-scroll {scrollbar-gutter:stable;}
+}
+@media (hover:hover) and (pointer:fine) {
+  .full-portfolio-download:hover {color:#1c5993;text-decoration:underline;text-underline-offset:4px;}
+  .full-portfolio-close:hover {background:#e4eaf0;}
+}
