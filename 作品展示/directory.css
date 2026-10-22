@@ -1,6 +1,6 @@
 /* Reference-matched directory cards, isolated from the original reader styles. */
 .work-index:has(.directory-grid) { padding-block:30px 34px; }
-.work-index:has(.directory-grid) h1 { margin:0 0 clamp(22px,3.2dvh,36px); color:#e2ecf3; font-size:clamp(28px,7.6vw,112px); font-weight:900; line-height:1; letter-spacing:.025em; text-align:center; white-space:nowrap; }
+.work-index:has(.directory-grid) h1 { margin:0 0 clamp(22px,3.2dvh,36px); color:rgb(255 255 255 / 50%); font-size:clamp(28px,7.6vw,112px); font-weight:900; line-height:1; letter-spacing:.025em; text-align:center; white-space:nowrap; }
 .directory-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(24px,3.4vw,52px); align-items:start; }
 .directory-project { --directory-ink:#355784; --directory-muted:#6d8fb3; --directory-accent:#a2c8f2; min-width:0; display:flex; flex-direction:column; align-items:center; gap:25px; }
 .directory-project--crane { --directory-ink:#665122; --directory-muted:#a28c53; --directory-accent:#e7c557; }
