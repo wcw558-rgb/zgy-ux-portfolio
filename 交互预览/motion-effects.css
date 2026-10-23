@@ -1,0 +1,79 @@
+/* Local effects for the opt-in preview only. No baseline layout is changed. */
+html.motion-preview .motion-portrait-layer,
+html.motion-preview .motion-title-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Keep the original portrait / letter / icon stacking order (1 / 2 / 3). */
+html.motion-preview .motion-portrait-layer {
+  z-index: 1;
+  transform-origin: calc(720px * var(--scene-scale)) calc((var(--portrait-top, 81.6px) + 192px) * var(--scene-scale));
+  /* Retain the same composite layer when the scale animation is released. */
+  transform: translate3d(0, 0, 0) scale(1);
+  backface-visibility: hidden;
+}
+html.motion-preview .motion-title-layer { z-index: 2; transform: translate3d(0, 0, 0); }
+html.motion-preview .motion-title-layer > .portfolio { pointer-events: auto; }
+
+/* The magnetic item and the original PNG keep ownership of their transforms. */
+html.motion-preview .motion-icon-enter,
+html.motion-preview .motion-icon-float {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+html.motion-preview .motion-icon-float {
+  animation: portfolio-preview-float var(--motion-float-duration, 5s) ease-in-out var(--motion-float-phase, 0s) infinite;
+  animation-play-state: paused;
+}
+html.motion-preview .motion-icon-enter { transform: translate3d(0, 0, 0); }
+html.motion-preview .motion-icon-float.is-motion-visible { animation-play-state: running; }
+
+/* Neutral grounding shadow only; the eight original PNGs stay untouched. */
+html.motion-preview #home-view .tool-art {
+  filter: drop-shadow(
+    calc(5px * var(--scene-scale)) calc(14px * var(--scene-scale))
+    calc(11.1000003815px * var(--scene-scale))
+    rgb(185 185 185 / 65%)
+  );
+}
+
+@keyframes portfolio-preview-float {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, calc(-1 * var(--motion-float-distance, 6px)), 0); }
+}
+
+html.motion-preview .directory-card {
+  transition: transform 300ms cubic-bezier(.32,.72,0,1), box-shadow 300ms cubic-bezier(.32,.72,0,1);
+}
+
+/* Scale the artwork as a whole, outside the original device/image rotations. */
+html.motion-preview .motion-directory-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(1);
+  transform-origin: center;
+  transition: transform 300ms cubic-bezier(.32,.72,0,1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  html.motion-preview .directory-card:hover {
+    transform: translateY(-6px) scale(1.015);
+  }
+  html.motion-preview .directory-card:hover .motion-directory-art { transform: scale(1.03); }
+}
+
+/* All content is visible by default; JavaScript never installs a hidden state. */
+@media (prefers-reduced-motion: reduce) {
+  html.motion-preview .motion-icon-float { animation: none !important; transform: none !important; }
+  html.motion-preview .directory-card,
+  html.motion-preview .motion-directory-art { transition: none !important; }
+  html.motion-preview .directory-card:hover,
+  html.motion-preview .directory-card:hover .motion-directory-art { transform: none !important; }
+}

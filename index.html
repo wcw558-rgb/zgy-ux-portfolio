@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" class="motion-preview">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -346,23 +346,27 @@
       .letter-cracks { opacity: 0 !important; }
     }
   </style>
-  <link rel="stylesheet" href="关于我/about.css">
-  <link rel="stylesheet" href="关于我/about-portfolio.css">
-  <link rel="stylesheet" href="作品展示/work.css">
-  <link rel="stylesheet" href="作品展示/directory.css?v=20261022-white50">
-  <link rel="stylesheet" href="作品展示/contact.css">
-  <link rel="stylesheet" href="作品展示/portfolio-pdf.css">
-  <script defer src="关于我/resume-download.js"></script>
-  <script defer src="关于我/about-layout.js"></script>
-  <script defer src="关于我/internship-popover.js"></script>
-  <script defer src="作品展示/web-pages/media-index.js?v=20261022-frame9"></script>
-  <script defer src="作品展示/portfolio-data.js"></script>
-  <script defer src="作品展示/directory.js"></script>
-  <script defer src="作品展示/contact.js"></script>
-  <script defer src="作品展示/work.js"></script>
-  <script defer src="作品展示/portfolio-pdf.js"></script>
-  <script defer src="作品展示/attachment-download.js"></script>
-  <script defer src="网站导航/page-wheel.js"></script>
+  <link rel="stylesheet" href="关于我/about.css?v=20261023-motion-800">
+  <link rel="stylesheet" href="关于我/about-portfolio.css?v=20261023-motion-800">
+  <link rel="stylesheet" href="作品展示/work.css?v=20261023-motion-800">
+  <link rel="stylesheet" href="作品展示/directory.css?v=20261023-motion-800">
+  <link rel="stylesheet" href="作品展示/contact.css?v=20261023-motion-800">
+  <link rel="stylesheet" href="作品展示/portfolio-pdf.css?v=20261023-motion-800">
+  <link rel="stylesheet" href="交互预览/motion-layout.css?v=20261023-motion-800">
+  <link rel="stylesheet" href="交互预览/motion-effects.css?v=20261023-motion-800">
+  <script defer src="交互预览/motion-navigation.js?v=20261023-motion-800"></script>
+  <script defer src="交互预览/motion-effects.js?v=20261023-motion-800"></script>
+  <script defer src="关于我/resume-download.js?v=20261023-motion-800"></script>
+  <script defer src="交互预览/about-layout-preview.js?v=20261023-motion-800"></script>
+  <script defer src="交互预览/internship-preview.js?v=20261023-motion-800"></script>
+  <script defer src="作品展示/web-pages/media-index.js?v=20261023-motion-800"></script>
+  <script defer src="作品展示/portfolio-data.js?v=20261023-motion-800"></script>
+  <script defer src="作品展示/directory.js?v=20261023-motion-800"></script>
+  <script defer src="交互预览/contact-preview.js?v=20261023-motion-800"></script>
+  <script defer src="交互预览/work-preview.js?v=20261023-motion-800"></script>
+  <script defer src="交互预览/portfolio-pdf-preview.js?v=20261023-motion-800"></script>
+  <script defer src="作品展示/attachment-download.js?v=20261023-motion-800"></script>
+
 </head>
 <body>
   <svg class="material-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
@@ -415,7 +419,8 @@
         <span class="nav-indicator" aria-hidden="true"></span>
       </nav>
     </header>
-    <main class="hero" id="home-view" data-view aria-labelledby="portfolio-title">
+    <main class="motion-document">
+    <section class="hero" id="home-view" data-view aria-labelledby="portfolio-title">
       <div class="composition" data-node-id="45:14">
         <img class="portrait" src="首页/相关素材/人物.png" alt="钟光英的个人形象" fetchpriority="high" draggable="false" data-node-id="45:13">
       <div class="magnetic-anchor tool-figma" data-magnetic data-node-id="196:24" style="--x:342;--y:0;--w:176.9501767;--h:176.9501767" tabindex="0" role="img" aria-label="Figma">
@@ -674,8 +679,8 @@
         </span>
         </h1>
       </div>
-    </main>
-    <main class="about-view about-portfolio" id="about-view" data-view hidden aria-labelledby="about-title" tabindex="-1">
+    </section>
+    <section class="about-view about-portfolio" id="about-view" data-view aria-labelledby="about-title" tabindex="-1">
       <div class="about-fit-frame">
       <div class="about-layout about-portfolio-layout">
         <aside class="about-profile" aria-label="个人介绍">
@@ -692,8 +697,8 @@
             <button type="button" class="contact-copy" data-copy="13148872416@163.com" data-copy-label="邮箱" aria-label="复制邮箱 13148872416@163.com"><span>Email</span><span>13148872416@163.com <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg></span></button>
             <button type="button" class="about-action" data-open-wechat aria-haspopup="dialog" aria-controls="wechat-dialog"><span>微信</span><span>查看二维码 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></button>
           </div>
-          <a class="about-resume" href="关于我/UX-深圳大学-硕士-钟光英.pdf" download="UX-深圳大学-硕士-钟光英.pdf"><span>下载简历附件</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M5 16v4h14v-4"/></svg></a>
-          <a class="about-portfolio-download" href="作品展示/完整作品集.pdf" download="钟光英-完整版作品集.pdf"><span>下载作品集附件</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M5 16v4h14v-4"/></svg></a>
+          <a class="about-resume" href="关于我/UX-深圳大学-硕士-钟光英.pdf?v=f1af60ed3342" download="UX简历-深圳大学-硕士-钟光英.pdf"><span>下载简历附件</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M5 16v4h14v-4"/></svg></a>
+          <a class="about-portfolio-download" href="作品展示/完整作品集.pdf?v=facf8c2458b5" download="UX作品集-深圳大学-硕士-钟光英.pdf"><span>下载作品集附件</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M5 16v4h14v-4"/></svg></a>
         </aside>
         <div class="about-column about-work about-main-content">
           <section class="about-section portfolio-education" aria-labelledby="education-heading">
@@ -787,10 +792,11 @@
         </div>
       </div>
       </div>
-    </main>
+    </section>
 
-    <main class="work-view" id="work-view" data-view hidden tabindex="-1" aria-label="作品展示与项目案例"></main>
-    <main class="contact-view" id="contact-view" data-view hidden tabindex="-1" aria-label="联系我"></main>
+    <section class="work-view" id="work-view" data-view tabindex="-1" aria-label="作品展示与项目案例"></section>
+    <section class="contact-view" id="contact-view" data-view tabindex="-1" aria-label="联系我"></section>
+    </main>
 
     <dialog class="work-dialog" id="work-image-dialog" aria-labelledby="work-image-title">
       <div class="work-dialog-header"><h2 id="work-image-title">项目设计图</h2><button class="work-dialog-close" type="button" data-close-work-image aria-label="关闭项目大图">×</button></div>
@@ -837,46 +843,7 @@
       let pointer = null;
       let animationFrame = 0;
 
-      function positionIndicator() {
-        const parent = nav.getBoundingClientRect();
-        const target = activeButton.getBoundingClientRect();
-        indicator.style.width = target.width + 'px';
-        indicator.style.transform = 'translateX(' + (target.left - parent.left) + 'px)';
-      }
-
-      function selectView(button, updateHistory = true) {
-        const isAbout = button === buttons[1];
-        const isWork = button === buttons[2];
-        const isContact = button === buttons[3];
-        resetAll();
-        activeButton = button;
-        homeView.hidden = isAbout || isWork || isContact;
-        aboutView.hidden = !isAbout;
-        workView.hidden = !isWork;
-        contactView.hidden = !isContact;
-        page.dataset.activeView = isAbout ? 'about' : isWork ? 'work' : isContact ? 'contact' : 'home';
-        buttons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
-        document.title = isAbout ? '钟光英 · About' : isWork ? '钟光英 · Works' : isContact ? '钟光英 · Contact' : '钟光英 · Portfolio';
-        const nextHash = isAbout ? '#about' : isWork ? '#work' : isContact ? '#contact' : '#home';
-        if (updateHistory && location.hash !== nextHash) {
-          try { history.pushState(null, '', nextHash); } catch (_) { /* Local preview can still switch views. */ }
-        }
-        fitComposition();
-        if (!isAbout && !isWork) requestAnimationFrame(() => { if (!homeView.hidden) fitComposition(); });
-        window.dispatchEvent(new CustomEvent('portfolio:viewchange'));
-      }
-
-      function buttonForHash() {
-        return location.hash.startsWith('#work') ? buttons[2] : location.hash === '#about' ? buttons[1] : location.hash === '#contact' ? buttons[3] : buttons[0];
-      }
-
-      buttons.forEach(button => button.addEventListener('click', event => {
-        selectView(button);
-        if (button === buttons[1] && event.detail === 0) aboutView.focus({ preventScroll: true });
-        if (button === buttons[2] && event.detail === 0) workView.focus({ preventScroll: true });
-        if (button === buttons[3] && event.detail === 0) contactView.focus({ preventScroll: true });
-      }));
-      window.addEventListener('hashchange', () => selectView(buttonForHash(), false));
+      function positionIndicator() { window.PortfolioMotionNavigation?.updateIndicator(); }
 
       const copyStatus = document.querySelector('#about-copy-status');
       let copyStatusTimeout = 0;
@@ -987,7 +954,7 @@
 
       function renderMagnets() {
         animationFrame = 0;
-        if (homeView.hidden || !pointer || !hover.matches || reducedMotion.matches) return;
+        if (page.dataset.activeView !== 'home' || !pointer || !hover.matches || reducedMotion.matches) return;
         for (const magnet of magnets) {
           const r = magnet.rect;
           if (!r || !r.width) continue;
@@ -1024,8 +991,8 @@
         const headerBottom = header.getBoundingClientRect().bottom;
         page.style.setProperty('--about-top', headerBottom + 'px');
         if (homeView.hidden) return;
-        const viewport = page.getBoundingClientRect();
-        const verticalInset = headerBottom - viewport.top + 12;
+        const viewport = homeView.getBoundingClientRect();
+        const verticalInset = header.getBoundingClientRect().height + 12;
         const availableHeight = Math.max(1, viewport.height - 2 * verticalInset);
         const availableWidth = Math.max(1, header.getBoundingClientRect().width);
         sceneScale = Math.min(availableWidth / 1440, availableHeight / 658.06);
@@ -1085,7 +1052,7 @@
       }
 
       document.addEventListener('pointermove', event => {
-        if (homeView.hidden || event.pointerType === 'touch' || !hover.matches || reducedMotion.matches) {
+        if (page.dataset.activeView !== 'home' || event.pointerType === 'touch' || !hover.matches || reducedMotion.matches) {
           resetAll();
           return;
         }
@@ -1102,7 +1069,7 @@
       hover.addEventListener('change', resetAll);
       reducedMotion.addEventListener('change', resetAll);
       window.addEventListener('resize', fitComposition, { passive: true });
-      window.addEventListener('scroll', measure, { passive: true });
+      window.addEventListener('scroll', () => { if (page.dataset.activeView === 'home') measure(); else resetAll(); }, { passive: true });
       window.addEventListener('load', fitComposition);
       if (window.visualViewport) visualViewport.addEventListener('resize', fitComposition, { passive: true });
       if ('ResizeObserver' in window) new ResizeObserver(fitComposition).observe(header);
@@ -1116,7 +1083,6 @@
         requestAnimationFrame(() => nav.classList.add('is-ready'));
       }
 
-      selectView(buttonForHash(), false);
       initialize().catch(error => {
         console.error('Portfolio font initialization failed:', error);
         layoutLetters();

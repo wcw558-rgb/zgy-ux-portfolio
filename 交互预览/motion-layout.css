@@ -1,0 +1,37 @@
+/* Preview only: the accepted artwork and component rules remain in their source files. */
+html.motion-preview { height:auto; min-height:100%; overflow-x:clip; overflow-y:scroll; scroll-behavior:auto; }
+html.motion-preview body { height:auto; min-height:100%; overflow:visible; overflow-x:clip; background:none; isolation:isolate; overflow-anchor:none; }
+html.motion-preview body::before { content:""; position:fixed; inset:0; z-index:-1; pointer-events:none; background:#eef5fa url("../background-4k.png") center / cover no-repeat; }
+.motion-preview .page { height:auto; min-height:100svh; overflow:visible; }
+.motion-preview .header { position:fixed; top:0; left:0; right:auto; width:calc(100vw - 2 * var(--header-gutter)); z-index:40; }
+.motion-preview .motion-document { display:block; }
+.motion-preview [data-view] { position:relative; inset:auto; height:auto; overflow:visible; overscroll-behavior:auto; scroll-margin-top:72px; }
+.motion-preview [data-view]:focus { outline:none; }
+.motion-preview #home-view { min-height:100svh; height:100svh; width:calc(100vw - 2 * var(--header-gutter)); margin:0 var(--header-gutter); }
+.motion-preview #about-view { width:100vw; }
+.motion-preview #about-view.is-board-fitted { overflow:visible; }
+.motion-preview #about-view.is-board-fitted .about-fit-frame { height:var(--motion-about-height); overflow:visible; }
+.motion-preview #about-view.is-board-fitted .about-portfolio-layout { top:24px; }
+.motion-preview #work-view,
+.motion-preview #contact-view { width:100vw; min-height:calc(100svh - 56px); scrollbar-gutter:auto; }
+.motion-preview #work-view .work-index { min-height:calc(100svh - 56px); }
+html.motion-preview .work-index:has(.directory-grid) h1 { color:rgb(255 255 255 / 70%); }
+html.motion-preview .directory-action { border:0; background:transparent; box-shadow:none; }
+html.motion-preview .directory-action svg { width:32px; height:21px; flex-shrink:0; }
+html.motion-preview .directory-card:hover .directory-action { background:transparent; transform:none; }
+.motion-preview #contact-view { display:grid; }
+.motion-preview .folio-sidebar { top:76px; }
+.motion-preview .folio-anchor { scroll-margin-top:72px; }
+.motion-preview #about-view .portfolio-internship-content { max-height:var(--internship-popover-height,min(60dvh,560px)); }
+.motion-preview .portfolio-internship.is-detail-closing .portfolio-internship-content { pointer-events:none; }
+.motion-preview .portfolio-experience:has(.portfolio-internship[open]) { position:relative; z-index:8; }
+html.motion-preview.motion-dialog-open { overflow-y:hidden; }
+@media(max-width:900px) {
+  .motion-preview #about-view .about-fit-frame { height:auto; }
+}
+@media(max-width:760px) {
+  .motion-preview .folio-sidebar { top:68px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .motion-preview *, .motion-preview *::before, .motion-preview *::after { scroll-behavior:auto!important; }
+}
